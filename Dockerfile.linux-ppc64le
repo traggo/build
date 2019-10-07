@@ -1,0 +1,12 @@
+ARG GO_VERSION
+FROM golang:$GO_VERSION
+RUN \
+  apt-get update && \
+  apt-get install -y gcc-powerpc64le-linux-gnu g++-powerpc64le-linux-gnu
+
+ENV CGO_ENABLED=1
+ENV CC=powerpc64le-linux-gnu-gcc
+ENV CXX=powerpc64le-linux-gnu-g++
+ENV GOOS=linux
+ENV GOARCH=ppc64le
+
